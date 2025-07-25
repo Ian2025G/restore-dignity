@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SARE NGANG'O INITIATIVE</title>
+  <link rel="stylesheet" href="style.css">
+<!-- moved styles to external file -->
+<style disabled>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #f0fdf4, #fff8e1);
+      color: #333;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background: #2e7d32;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      animation: slideDown 1s ease-in-out;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    header h1 {
+      color: #ff9800;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 1px;
+    }
+    nav {
+      background: #ffffffcc;
+      backdrop-filter: blur(8px);
+      padding: 12px 20px;
+      text-align: center;
+      position: sticky;
+      top: 60px;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-bottom: 2px solid #fb8c00;
+      transition: background 0.3s, border 0.3s;
+    }
+    nav a {
+      color: #2e7d32;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav a:hover {
+      background: #fb8c00;
+      color: white;
+    }
+    section {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      animation: fadeIn 1s ease-in;
+    }
+    h1, h2 {
+      color: #2e7d32;
+    }
+    footer {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+    }
+    .gallery::-webkit-scrollbar {
+      height: 10px;
+    }
+    .gallery::-webkit-scrollbar-thumb {
+      background: #fb8c00;
+      border-radius: 5px;
+    }
+    .gallery img {
+      flex: 0 0 auto;
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      scroll-snap-align: start;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SARE NGANG'O INITIATIVE</h1>
+    <p><em>~ Restoring Dignity ~</em></p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#gallery">Gallery</a>
+    <a href="javascript:void(0);" onclick="document.getElementById('donatePopup').style.display='block'">Donate</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h2>Welcome to Sare Ngang'o</h2>
+    <p>The Sare Ngang’o Initiative is a grassroots movement founded in 2025 to combat chang’aa abuse, empower youth, and restore dignity in Kenyan communities through awareness, skills training, and faith-based support.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>Vision:</strong> To build a drug-free, empowered, and self-reliant community through education, counseling, and economic empowerment.</p>
+    <p><strong>Mission:</strong> To rescue individuals from the harmful effects of chang’aa and other destructive habits by offering rehabilitation, mentorship, and support through faith-based and grassroots interventions.</p>
+    <p><strong>Core Areas:</strong></p>
+    <ul>
+      <li>Anti-Chang’aa Awareness Campaigns</li>
+      <li>Counseling and Rehabilitation</li>
+      <li>Youth Skills Training and Mentorship</li>
+      <li>Alternative Income Projects</li>
+      <li>Faith-Based Community Engagement</li>
+    </ul>
+  </section>
+
+  <section id="programs">
+    <h2>Programs</h2>
+    <ul>
+      <li>21-Day Anti-Chang’aa Campaigns</li>
+      <li>Community Counseling Forums</li>
+      <li>Graphic Design & Digital Skills Bootcamps</li>
+      <li>Vocational Training: Farming, Crafts, Small Business</li>
+      <li>Family Healing & Church Engagement Events</li>
+    </ul>
+    <h3>Strategic Plan (2025–2027)</h3>
+    <p>
+      <strong>2025:</strong> Registration, awareness campaigns, community mobilization<br>
+      <strong>2026:</strong> Launch skills programs, support groups, donor partnerships<br>
+      <strong>2027:</strong> Establish permanent recovery & training center
+    </p>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <p>Here we will showcase our events, posters, campaigns, and community activities. Scroll right to view more images.</p>
+    <div class="gallery">
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/1.png" alt="Day 1" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/2.png" alt="Day 2" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/3.png" alt="Day 3" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/4.png" alt="Day 4" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/5.png" alt="Day 5" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/6.png" alt="Day 6" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/7.png" alt="Day 7" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/8.png" alt="Day 8" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/9.png" alt="Day 9" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/10.png" alt="Day 10" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/11.png" alt="Day 11" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/12.png" alt="Day 12" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/13.png" alt="Day 13" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/14.png" alt="Day 14" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/15.png" alt="Day 15" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/16.png" alt="Day 16" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/17.png" alt="Day 17" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/18.png" alt="Day 18" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/19.png" alt="Day 19" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/20.png" alt="Day 20" />
+<img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/21.png" alt="Day 21" />
+      <img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/poster1.jpg" alt="Poster 1" />
+      <img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/activity1.jpg" alt="Activity 1" />
+      <img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/poster2.jpg" alt="Poster 2" />
+      <img onclick="openFullscreen(this.src)" style="cursor: pointer;" src="images/activity2.jpg" alt="Activity 2" />
+    </div>
+    <p><em>You can upload your images to the /images folder in your project.</em></p>
+  </section>
+
+  
+  <section id="donate">
+    <h2>Donate & Support Our Mission</h2>
+    <p>Your contribution can change lives. We welcome donations in the following forms:</p>
+    <ul>
+      <li><strong>Cash Donations:</strong> Support our campaigns and recovery programs.</li>
+      <li><strong>In-Kind Donations:</strong> Food, clothing, training materials, farming tools, etc.</li>
+      <li><strong>Service Offerings:</strong> Medical support, counseling, printing, transport, etc.</li>
+      <li><strong>Volunteer:</strong> Join our events and outreach missions as a mentor, guide, or speaker.</li>
+      <li><strong>Professional Support:</strong> Legal, psychological, branding, or any other field of expertise.</li>
+    </ul>
+    <p><strong>How to Donate:</strong></p>
+    <ul>
+      <li><strong>M-Pesa Till:</strong> <code>3151028</code> </li>
+      <li><strong>Contact:</strong> Call/SMS/WhatsApp <strong>0708 507 509</strong> or <strong>0780 11 51 91</strong></li>
+      <li><strong>Email:</strong> <a href="mailto:ianographics@gmail.com">ianographics@gmail.com</a></li>
+    </ul>
+    <p>Every donation — big or small — helps us bring change. Thank you for standing with us!</p>
+  </section>
+
+
+  
+<div id="donatePopup">
+  <button id="closePopup" onclick="document.getElementById('donatePopup').style.display='none'">×</button>
+  <h2>Donate & Support Our Mission</h2>
+  <p>Your contribution can change lives. We welcome donations in the following forms:</p>
+  <ul>
+    <li><strong>Cash Donations:</strong> Support our campaigns and recovery programs.</li>
+    <li><strong>In-Kind Donations:</strong> Food, clothing, training materials, farming tools, etc.</li>
+    <li><strong>Service Offerings:</strong> Medical support, counseling, printing, transport, etc.</li>
+    <li><strong>Volunteer:</strong> Join our events and outreach missions as a mentor, guide, or speaker.</li>
+    <li><strong>Professional Support:</strong> Legal, psychological, branding, or any other field of expertise.</li>
+  </ul>
+  <p><strong>M-Pesa Till Number:</strong> <code>3151028</code></p>
+  <p><strong>Contact:</strong> WhatsApp/SMS/Call 0708 507 509 or 0780 11 51 91</p>
+  <p><strong>Email:</strong> <a href="mailto:ianographics@gmail.com">ianographics@gmail.com</a></p>
+</div>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Contact Person:</strong> Ian Angala</p>
+    <p><strong>Phone:</strong> 0708 507 509 / 0780 11 51 91</p>
+    <p><strong>Email:</strong> ianographics@gmail.com</p>
+    <p><strong>Location:</strong> Kenya</p>
+  </section>
+
+  <footer>
+    <p>SARE NGANG'O INITIATIVE &copy; 2025 | “Kurejesha Heshima – Restoring Dignity”</p>
+  </footer>
+
+  <a href="https://wa.me/254708507509" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 10px 15px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1001;">
+    WhatsApp Us
+  </a>
+
+
+<script>
+  function openFullscreen(src) {
+    const modal = document.createElement('div');
+    modal.style.position = 'fixed';
+    modal.style.top = 0;
+    modal.style.left = 0;
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.background = 'rgba(0,0,0,0.9)';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.zIndex = 5000;
+
+    const img = document.createElement('img');
+    img.src = src;
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.border = '4px solid white';
+    img.style.borderRadius = '10px';
+    img.style.boxShadow = '0 0 20px rgba(255,255,255,0.5)';
+    img.onclick = () => document.body.removeChild(modal);
+
+    modal.appendChild(img);
+    modal.onclick = () => document.body.removeChild(modal);
+
+    document.body.appendChild(modal);
+  }
+</script>
+
+<script>
+  let currentImageIndex = -1;
+  let galleryImages = [];
+
+  function openFullscreen(src) {
+    galleryImages = Array.from(document.querySelectorAll('.gallery img'));
+    currentImageIndex = galleryImages.findIndex(img => img.src === src);
+
+    const modal = document.createElement('div');
+    modal.id = 'fullscreenModal';
+    modal.style.position = 'fixed';
+    modal.style.top = 0;
+    modal.style.left = 0;
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.background = 'rgba(0,0,0,0.9)';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.zIndex = 5000;
+
+    const img = document.createElement('img');
+    img.id = 'fullscreenImg';
+    img.src = src;
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.border = '4px solid white';
+    img.style.borderRadius = '10px';
+    img.style.boxShadow = '0 0 20px rgba(255,255,255,0.5)';
+
+    const prev = document.createElement('div');
+    prev.innerHTML = '&#10094;';
+    prev.style.position = 'absolute';
+    prev.style.left = '20px';
+    prev.style.top = '50%';
+    prev.style.transform = 'translateY(-50%)';
+    prev.style.fontSize = '40px';
+    prev.style.color = 'white';
+    prev.style.cursor = 'pointer';
+    prev.onclick = () => showImage(currentImageIndex - 1);
+
+    const next = document.createElement('div');
+    next.innerHTML = '&#10095;';
+    next.style.position = 'absolute';
+    next.style.right = '20px';
+    next.style.top = '50%';
+    next.style.transform = 'translateY(-50%)';
+    next.style.fontSize = '40px';
+    next.style.color = 'white';
+    next.style.cursor = 'pointer';
+    next.onclick = () => showImage(currentImageIndex + 1);
+
+    const close = document.createElement('div');
+    close.innerHTML = '&times;';
+    close.style.position = 'absolute';
+    close.style.top = '20px';
+    close.style.right = '30px';
+    close.style.fontSize = '35px';
+    close.style.color = 'white';
+    close.style.cursor = 'pointer';
+    close.onclick = () => document.body.removeChild(modal);
+
+    modal.appendChild(prev);
+    modal.appendChild(img);
+    modal.appendChild(next);
+    modal.appendChild(close);
+    document.body.appendChild(modal);
+  }
+
+  function showImage(index) {
+    if (index >= 0 && index < galleryImages.length) {
+      currentImageIndex = index;
+      const img = document.getElementById('fullscreenImg');
+      img.src = galleryImages[currentImageIndex].src;
+    }
+  }
+</script>
+</body>
