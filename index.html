@@ -15,111 +15,125 @@
   gtag('config', 'G-XXXXXXXXXX');
 </script>
 <style>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scrollable Image Gallery</title>
+  <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: sans-serif;
+      background-color: #f0f0f0;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #f0fdf4, #fff8e1);
-      color: #333;
-      animation: fadeIn 1s ease-in;
+      padding: 1rem;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    header {
-      background: #2e7d32;
-      color: #fff;
-      padding: 20px;
+
+    h1 {
       text-align: center;
-      animation: slideDown 1s ease-in-out;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      color: #222;
     }
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    header h1 {
-      color: #ff9800;
-      text-transform: uppercase;
-      font-weight: 900;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      letter-spacing: 1px;
-    }
-    nav {
-      background: #ffffffcc;
-      backdrop-filter: blur(8px);
-      padding: 12px 20px;
-      text-align: center;
-      position: sticky;
-      top: 60px;
-      z-index: 999;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      border-bottom: 2px solid #fb8c00;
-      transition: background 0.3s, border 0.3s;
-    }
-    nav a {
-      color: #2e7d32;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 20px;
-      transition: background 0.3s, color 0.3s;
-    }
-    nav a:hover {
-      background: #fb8c00;
-      color: white;
-    }
-    section {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      animation: fadeIn 1s ease-in;
-    }
-    h1, h2 {
-      color: #2e7d32;
-    }
-    footer {
-      background: #2e7d32;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-    }
-    .gallery {
+
+    .scroll-gallery {
       display: flex;
       overflow-x: auto;
-      gap: 15px;
-      padding-bottom: 10px;
-      scroll-snap-type: x mandatory;
+      gap: 10px;
+      padding: 10px;
+      scroll-behavior: smooth;
     }
-    .gallery::-webkit-scrollbar {
-      height: 10px;
+
+    .scroll-gallery img {
+      height: 200px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    .gallery::-webkit-scrollbar-thumb {
-      background: #fb8c00;
-      border-radius: 5px;
-    }
-    .gallery img {
-      flex: 0 0 auto;
-      width: 250px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      scroll-snap-align: start;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .gallery img:hover {
+
+    .scroll-gallery img:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
     }
+
+    .scroll-gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .scroll-gallery::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 10px;
+    }
+
+    .scroll-gallery::-webkit-scrollbar-track {
+      background-color: #ddd;
+    }
+
+    /* Fullscreen overlay */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .overlay:target {
+      display: flex;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Scrollable Image Gallery</h1>
+
+<div class="scroll-gallery" id="gallery"></div>
+
+<div id="overlay" class="overlay">
+  <a href="#" class="close">&times;</a>
+  <img id="fullImage" src="" alt="Full View" />
+</div>
+
+<script>
+  const gallery = document.getElementById("gallery");
+  const fullImage = document.getElementById("fullImage");
+
+  const username = "ianographics";
+  const repo = "my-website"; // Change to your actual repo name
+
+  for (let i = 1; i <= 21; i++) {
+    const imgURL = `https://raw.githubusercontent.com/${username}/${repo}/main/${i}.png`;
+    const img = document.createElement("img");
+    img.src = imgURL;
+    img.alt = `Image ${i}`;
+    img.onclick = () => {
+      fullImage.src = imgURL;
+      window.location.hash = "overlay";
+    };
+    gallery.appendChild(img);
+  }
+</script>
+
+</body>
+</html>
+
   </style>
 </head>
 <body>
