@@ -136,3 +136,12 @@ footer {
   font-size: 18px;
   cursor: pointer;
 }
+#footer-stats .counter {
+  transition: all 0.3s ease-in-out;
+}
+#footer-stats p {
+  font-weight: 500;
+}
+#footer-stats h2, #footer-stats h3 {
+  font-weight: bold;
+}
